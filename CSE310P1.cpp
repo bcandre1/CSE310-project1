@@ -8,11 +8,12 @@
 
 #include <iostream>
 #include <string.h>
+#include <fstream>
 using namespace std;
 
 
 
-int insertionSort (char array1[], int n) { //??? n is length? maybe?
+void insertionSort (char array1[], int n) { //??? n is length? maybe?
 	int j;
 	char k;
 	for (int i = 1; i < n; i++) {
@@ -25,18 +26,25 @@ int insertionSort (char array1[], int n) { //??? n is length? maybe?
 		array1[j+ 1] = k;
 	}
 	cout << array1 << "\n";
-	return 1;
+	//return 1;
 }
 
 
-void mergesort () {  //Unfinished
+void mergesort (char array1[], int length) {  //take in array/ length of array
+	int left = array1[0];
+//	int mid = array1[];
+	int right = array1[length];
+
+	//int tempArray1[temp1size];
+
 
 }
 
 void encode (string selection, string filenameIN, string filenameOUT) {
 	if (selection == "Insertion" || "insertion") {
-
-		//int temp = insertionSort(array1 array1.length());
+		//string currentLine = readIn(filenameIN);
+		int length = currentLine.length();
+		insertionSort(array1 array1.length());
 
 
 
@@ -53,12 +61,28 @@ void encode (string selection, string filenameIN, string filenameOUT) {
 
 }
 
-void readIn (string fileName) { //read a line in from stdin
-	char fileLine[200];
-	//getline()
+string readIn (string fileName) { //read a line in from stdin
+	std::ifstream infile(fileName);
+
+	std::string line;
+	string output = std::getline(infile, line);
+
+
+
+
 
 }
 
 int main () {
 
+}
+
+char stringToarray(string line) {
+	char convert[line.length];
+
+	for (int i = 0; i < line.length();i++) {
+		convert[i] = line[i];
+
+	}
+	return convert;
 }
