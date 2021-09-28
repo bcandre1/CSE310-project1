@@ -40,40 +40,45 @@ void mergesort (char array1[], int length) {  //take in array/ length of array
 
 }
 
-void encode (string selection, string filenameIN, string filenameOUT) {
-	if (selection == "Insertion" || "insertion") {
+string encode (char lineArray[],int length ) {
+	//if (selection == "Insertion" || "insertion") {
 		//string currentLine = readIn(filenameIN);
-		int length = currentLine.length();
-		insertionSort(array1 array1.length());
+		//int length = currentLine.length();
+		//insertionSort(array1 array1.length());
 
 
+
+	//}
+	//else if(selection == "Mergesort" || "mergesort") { //mergesort
+
+
+	//}
+	//else {
+	//	cout << "Invalid selection" << endl;
+
+	//}
+	string encodedLine;
+	for (int i = 0; i < length; i++) {
 
 	}
-	else if(selection == "Mergesort" || "mergesort") { //mergesort
-
-
-	}
-	else {
-		cout << "Invalid selection" << endl;
-
-	}
-
-
+return encodedLine;
 }
 
 string readIn (string fileName) { //read a line in from stdin
-	std::ifstream infile(fileName);
+	std::ifstream infile("fileName");
 
 	std::string line;
-	string output = std::getline(infile, line);
-
-
-
-
-
+	std::getline(infile, line);
+	if (line == NULL) {
+		printf ("Line is empty");
+	}
+	return line;
 }
-
-int main () {
+void writeToFile (string fileName, string encodedLine)  {
+	ofstream outfile;
+	outfile.open("output.txt");
+	outfile << encodedLine << endl;
+	outfile.close();
 
 }
 
@@ -85,4 +90,26 @@ char stringToarray(string line) {
 
 	}
 	return convert;
+}
+
+
+int main (string fileName, string sortType) {
+	string line;
+	if (sortType == "Insertion" || "insertion") {
+		while (line != NULL ) {
+			line = readIn(fileName);
+			char lineArray[line.length()];
+			lineArray = stringToarray(line);
+			insertionSort(lineArray, line.length());
+			string encodedLine = encode(lineArray,line.length());
+			writeToFile(fileName, encodedLine);
+
+		}
+	}
+	else if (sortType == "Mergesort" || "mergesort") {
+
+	}
+	else {
+		printf("Invalid selection");
+	}
 }
